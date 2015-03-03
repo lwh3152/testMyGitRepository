@@ -26,16 +26,18 @@ public class MainActivity extends Activity {
 		
 		 
 		String d = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-		ContentValues content = getContent(188, 2, 2015,03,05,"djfkd", d, d);
+		ContentValues content = getContent(188, 2,1, 2015,03,05,"djfkd", d, d);
 		long insertResult = dbInstance.insert("accounting", null, content);
 		System.out.println("insertResult="+insertResult);
 		dbInstance.close();
 	}
 
-	private ContentValues getContent(int price,int type,int year,int month,int day,String note,String ctm,String utm){
+	// type:1-收入,2-支出;status:1-有效,2-无效
+	private ContentValues getContent(int price,int type,int status,int year,int month,int day,String note,String ctm,String utm){
 		ContentValues content = new ContentValues();
 		content.put("price", price);
 		content.put("type", type);
+		content.put("status", status);
 		content.put("year", year);
 		content.put("month", month);
 		content.put("day", day);

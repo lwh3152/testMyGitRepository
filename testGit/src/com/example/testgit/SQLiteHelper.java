@@ -34,7 +34,7 @@ public class SQLiteHelper extends SQLiteOpenHelper{
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		System.out.println("onCreate");
-		String createTableSql = "create table accounting (id integer primary key autoincrement,price int,type int,year int,month int,day int,note text,ctm datetime,utm timestamp)";
+		String createTableSql = "create table accounting (id integer primary key autoincrement,price int,type int,status int,year int,month int,day int,note text,ctm datetime,utm timestamp)";
 		db.execSQL(createTableSql);
 		
 		// 创建一个账账单表
