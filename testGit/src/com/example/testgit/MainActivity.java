@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
 		ContentValues content = getContent(188, 2, 2015,03,05,"djfkd", d, d);
 		long insertResult = dbInstance.insert("accounting", null, content);
 		System.out.println("insertResult="+insertResult);
+		dbInstance.close();
 	}
 
 	private ContentValues getContent(int price,int type,int year,int month,int day,String note,String ctm,String utm){
